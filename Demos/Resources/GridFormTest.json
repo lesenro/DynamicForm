@@ -1,0 +1,92 @@
+{
+  "LabelWidth": 80,
+  "LabelAlignment": "MiddleRight",
+  "VerticalPadding": 5,
+  "Groups": {
+    "GroupType": 0,
+    "Name": "demo",
+    "Padding": {
+      "Top": 10,
+      "Bottom": 10,
+      "Left": 20,
+      "Right": 20
+    },
+    "Caption": "测试表单",
+    "Dock": 5,
+    "Width": 1,
+    "Children": []
+  },
+  "Items": [
+    {
+      "InputType": 0,
+      "Name": "UserName",
+      "Caption": "用户名:",
+      "GroupName": "demo",
+      "Options": {},
+      "Rules": {
+        "maxlength": 10,
+        "required": true
+      }
+    },
+    {
+      "InputType": 0,
+      "Name": "Password",
+      "Caption": "密码:",
+      "GroupName": "demo",
+      "Options": {
+        "password": "*"
+      },
+      "Rules": {
+        "maxlength": 10,
+        "required": true
+      }
+    },
+    {
+      "InputType": "TextArea",
+      "Name": "Text",
+      "Caption": "说明:",
+      "Height": 50,
+      "GroupName": "demo",
+      "Options": {},
+      "Rules": {
+        "maxlength": 10,
+        "required": true
+      }
+    },
+    {
+      "InputType": "DateTimePicker",
+      "Name": "DateTimePicker",
+      "Caption": "日期:",
+      "GroupName": "demo",
+      "Options": {
+        "format": "yyyy-MM-dd HH:mm"
+      },
+      "Rules": {}
+    },
+    {
+      "InputType": "Number",
+      "Name": "Number",
+      "Caption": "数字:",
+      "GroupName": "demo",
+      "Options": {},
+      "Rules": {
+        "min": 5,
+        "max": 100
+      }
+    },
+    {
+      "InputType": "CheckBoxs",
+      "Name": "cbxlist",
+      "Caption": "多选:",
+      "GroupName": "demo",
+      "Height": 50,
+      "Options": {
+        "options": "111"
+      },
+      "Rules": {
+        "min": 5,
+        "max": 100
+      }
+    }
+  ]
+}
