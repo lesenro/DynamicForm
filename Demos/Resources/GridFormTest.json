@@ -1,5 +1,5 @@
 {
-  "LabelWidth": 80,
+  "LabelWidth": 100,
   "LabelAlignment": "MiddleRight",
   "VerticalPadding": 5,
   "Groups": {
@@ -68,25 +68,174 @@
       "Name": "Number",
       "Caption": "数字:",
       "GroupName": "demo",
-      "Options": {},
-      "Rules": {
-        "min": 5,
-        "max": 100
-      }
-    },
-    {
-      "InputType": "CheckBoxs",
-      "Name": "cbxlist",
-      "Caption": "多选:",
-      "GroupName": "demo",
-      "Height": 50,
       "Options": {
-        "options": "111"
+        "thousands": true
       },
       "Rules": {
         "min": 5,
-        "max": 100
+        "max": 100000
       }
+    },
+    {
+      "InputType": "CheckBoxList",
+      "Name": "Cbxlist1",
+      "Caption": "多选(object):",
+      "GroupName": "demo",
+      "Height": 50,
+      "Options": {
+        "options": [
+          {
+            "Key": "k1",
+            "Name": "选项一"
+          },
+          {
+            "Key": "k2",
+            "Name": "选项二"
+          },
+          {
+            "Key": "k3",
+            "Name": "选项三"
+          },
+          {
+            "Key": "k4",
+            "Name": "选项四"
+          }
+        ]
+      },
+      "Rules": {}
+    },
+    {
+      "InputType": "CheckBoxList",
+      "Name": "Cbxlist2",
+      "Caption": "多选(string):",
+      "GroupName": "demo",
+      "Height": 50,
+      "Options": {
+        "options": "一,二,三,四"
+      },
+      "Rules": {}
+    },
+    {
+      "InputType": "CheckBoxs",
+      "Name": "Cbxlist3",
+      "Caption": "多选:",
+      "GroupName": "demo",
+      "Options": {
+        "columns": 3,
+        "options": [
+          {
+            "Key": "k1",
+            "Name": "选项一"
+          },
+          {
+            "Key": "k2",
+            "Name": "选项二"
+          },
+          {
+            "Key": "k3",
+            "Name": "选项三"
+          },
+          {
+            "Key": "k4",
+            "Name": "选项四"
+          }
+        ]
+      },
+      "Rules": {}
+    },
+    {
+      "InputType": "CheckBoxs",
+      "Name": "Cbxlist4",
+      "Caption": "多选(string):",
+      "GroupName": "demo",
+      "Options": {
+        "options": "一,二,三,四"
+      },
+      "Rules": {}
+    },
+    {
+      "InputType": "RadioButtons",
+      "Name": "RadioBtns1",
+      "Caption": "单选:",
+      "GroupName": "demo",
+      "Options": {
+        "columns": 3,
+        "options": [
+          {
+            "Key": "k1",
+            "Name": "选项一"
+          },
+          {
+            "Key": "k2",
+            "Name": "选项二"
+          },
+          {
+            "Key": "k3",
+            "Name": "选项三"
+          },
+          {
+            "Key": "k4",
+            "Name": "选项四"
+          }
+        ]
+      },
+      "Rules": {}
+    },
+    {
+      "InputType": "RadioButtons",
+      "Name": "RadioBtns2",
+      "Caption": "单选(string):",
+      "GroupName": "demo",
+      "Options": {
+        "options": "一,二,三,四"
+      },
+      "Rules": {}
+    },
+    {
+      "InputType": "ComboBox",
+      "Name": "ComboBox1",
+      "Caption": "单选:",
+      "GroupName": "demo",
+      "Options": {
+        "columns": 3,
+        "options": [
+          {
+            "Key": "k1",
+            "Name": "选项一"
+          },
+          {
+            "Key": "k2",
+            "Name": "选项二"
+          },
+          {
+            "Key": "k3",
+            "Name": "选项三"
+          },
+          {
+            "Key": "k4",
+            "Name": "选项四"
+          }
+        ]
+      },
+      "Rules": {}
+    },
+    {
+      "InputType": "ComboBox",
+      "Name": "ComboBox2",
+      "Caption": "单选(string):",
+      "GroupName": "demo",
+      "Options": {
+        "options": "一,二,三,四"
+      },
+      "Rules": {}
+    },
+    {
+      "InputType": "Switch",
+      "Name": "Switch1",
+      "Caption": "开关:",
+      "GroupName": "demo",
+      "Options": {},
+      "Rules": {}
     }
   ]
 }

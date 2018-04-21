@@ -1,4 +1,4 @@
-﻿namespace WinFormControls
+﻿namespace WinFormControls.Controls
 {
     partial class GridForm
     {
@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "GridForm";
-            this.Size = new System.Drawing.Size(432, 139);
+            this.Size = new System.Drawing.Size(432, 334);
             this.ResumeLayout(false);
 
         }

@@ -41,29 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormItem.cs">
+    <Compile Include="Controls\FormItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FormItem.Designer.cs">
+    <Compile Include="Controls\FormItem.Designer.cs">
       <DependentUpon>FormItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOptions.cs" />
-    <Compile Include="GridForm.cs">
+    <Compile Include="Models\FormOptions.cs" />
+    <Compile Include="Controls\GridForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GridForm.Designer.cs">
+    <Compile Include="Controls\GridForm.Designer.cs">
       <DependentUpon>GridForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Group.cs" />
-    <Compile Include="InputItem.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\InputItem.cs" />
+    <Compile Include="Models\OptionItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormItem.resx">
+    <EmbeddedResource Include="Controls\FormItem.resx">
       <DependentUpon>FormItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GridForm.resx">
+    <EmbeddedResource Include="Controls\GridForm.resx">
       <DependentUpon>GridForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

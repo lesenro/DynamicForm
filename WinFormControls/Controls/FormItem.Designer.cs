@@ -1,4 +1,4 @@
-﻿namespace WinFormControls
+﻿namespace WinFormControls.Controls
 {
     partial class FormItem
     {

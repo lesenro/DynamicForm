@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WinFormControls
+namespace WinFormControls.Models
 {
     public enum InputType
     {
-        TextBox,TextArea, DateTimePicker,DateTime, Number,CheckBoxs,RichText,RadioButtons,ComboBox,Switch
+        TextBox,TextArea, DateTimePicker,DateTime, Number,CheckBoxList, CheckBoxs,RichText, RadioButtons,ComboBox,Switch
     }
     public class InputItem
     {

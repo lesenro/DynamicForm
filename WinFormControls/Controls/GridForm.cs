@@ -8,8 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
 using System.Reflection;
+using WinFormControls.Models;
 
-namespace WinFormControls
+namespace WinFormControls.Controls
 {
     public partial class GridForm : UserControl
     {
@@ -83,7 +84,22 @@ namespace WinFormControls
             }
             return ctrl;
         }
-
+        public void UpdateOptionItems(string itemname, string val)
+        {
+            FormItem item = itemlist.Find(x => x.Name == itemname);
+            if (item != null)
+            {
+                item.updateOptions(val);
+            }
+        }
+        public void UpdateOptionItems(string itemname, List<OptionItem> os)
+        {
+            FormItem item = itemlist.Find(x => x.Name == itemname);
+            if (item != null)
+            {
+                item.updateOptions(os);
+            }
+        }
         private void Ctrl_SizeChanged(object sender, EventArgs e)
         {
             Control ctrl = sender as Control;
@@ -137,22 +153,18 @@ namespace WinFormControls
         }
         public T GetValues<T>(T data) where T : new()
         {
-            T instance = Activator.CreateInstance<T>();
-            Type t = instance.GetType();
+            Type t = data.GetType();
             var properties = t.GetProperties();
             foreach (PropertyInfo pinfo in properties)
             {
                 FormItem item = itemlist.Find(x => x.Name == pinfo.Name);
                 if (item != null)
                 {
-                    pinfo.SetValue(instance, item.Value, null);
+                    pinfo.SetValue(data, item.Value, null);
                 }
-                else
-                {
-                    pinfo.SetValue(instance, pinfo.GetValue(data, null), null);
-                }
+                
             }
-            return instance;
+            return data;
         }
     }
 }
