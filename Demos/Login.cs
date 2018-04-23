@@ -22,5 +22,6 @@ namespace Demos
         public string ComboBox1 { get; set; }
         public string ComboBox2 { get; set; }
         public bool Switch1 { get; set; }
+        public string Calendar { get; set; }
     }
 }

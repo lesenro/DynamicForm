@@ -71,6 +71,22 @@ namespace WinFormControls.Controls
                         DateTimePicker dtp = ctrl as DateTimePicker;
                         val = dtp.Value = (DateTime)o;
                         break;
+                    case InputType.Calendar:
+                        MonthCalendar calendar = ctrl as MonthCalendar;
+                        val = o.ToString();
+                        if (val.ToString().Contains("=>"))
+                        {
+                            string[] tmps = val.ToString().Split("=>".ToArray(), StringSplitOptions.RemoveEmptyEntries);
+                            calendar.SelectionStart = DateTime.Parse(tmps[0]);
+                            DateTime end = DateTime.Parse(tmps[1]);
+                            calendar.MaxSelectionCount = Convert.ToInt32((end - calendar.SelectionStart).TotalDays) + 1;
+                            calendar.SelectionEnd = DateTime.Parse(tmps[1]);
+                        }
+                        else
+                        {
+                            calendar.SelectionStart = DateTime.Parse(val.ToString());
+                        }
+                        break;
                     case InputType.Number:
                         NumericUpDown num = ctrl as NumericUpDown;
                         val = num.Value = decimal.Parse(o.ToString());
@@ -182,6 +198,9 @@ namespace WinFormControls.Controls
                 case InputType.DateTimePicker:
                     ctrl = GetDateTimePicker();
                     break;
+                case InputType.Calendar:
+                    ctrl = GetCalendar();
+                    break;
                 case InputType.Number:
                     ctrl = GetNumber();
                     break;
@@ -252,11 +271,11 @@ namespace WinFormControls.Controls
             }
             if (Options.Rules.ContainsKey("min"))
             {
-                dtp.MinDate = (DateTime)Options.Rules["min"];
+                dtp.MinDate = DateTime.Parse(Options.Rules["min"].ToString());
             }
             if (Options.Rules.ContainsKey("max"))
             {
-                dtp.MaxDate = (DateTime)Options.Rules["max"];
+                dtp.MaxDate = DateTime.Parse(Options.Rules["max"].ToString());
             }
             dtp.ValueChanged += (o, ev) =>
             {
@@ -264,6 +283,86 @@ namespace WinFormControls.Controls
                 OnValueChanged(this, ev);
             };
             return dtp;
+        }
+
+        private MonthCalendar GetCalendar()
+        {
+
+            MonthCalendar calendar = new MonthCalendar();
+            ContextMenu ctxMenus = new ContextMenu();
+            ctxMenus.MenuItems.Add(new MenuItem("转到今天", (o, ev) =>
+            {
+                calendar.SetDate(calendar.TodayDate);
+            }));
+            ctxMenus.MenuItems.Add(new MenuItem("开始日期", (o, ev) =>
+            {
+                DateTime time = (DateTime)calendar.Tag;
+                if (time <= DateTime.MinValue)
+                {
+                    return;
+                }
+                calendar.MaxSelectionCount = Convert.ToInt32((calendar.SelectionEnd - time).TotalDays) + 1;
+                calendar.SelectionStart = time;
+            }));
+            ctxMenus.MenuItems.Add(new MenuItem("结束日期", (o, ev) =>
+            {
+                DateTime time = (DateTime)calendar.Tag;
+                if (time <= DateTime.MinValue)
+                {
+                    return;
+                }
+                calendar.MaxSelectionCount = Convert.ToInt32((time - calendar.SelectionStart).TotalDays) + 1;
+                calendar.SelectionEnd = time;
+            }));
+            calendar.MouseDown += (o, ev) =>
+            {
+                calendar.Tag = calendar.HitTest(ev.Location).Time;
+            };
+            ctxMenus.Popup += (o, ev) =>
+            {
+                DateTime time = (DateTime)calendar.Tag;
+                if (time <= DateTime.MinValue)
+                {
+                    ctxMenus.MenuItems[1].Enabled = false;
+                    ctxMenus.MenuItems[2].Enabled = false;
+                }
+                else
+                {
+                    ctxMenus.MenuItems[1].Enabled = true;
+                    ctxMenus.MenuItems[2].Enabled = true;
+                    if (time > calendar.SelectionEnd)
+                    {
+                        ctxMenus.MenuItems[1].Enabled = false;
+                    }
+                    if (time < calendar.SelectionStart)
+                    {
+                        ctxMenus.MenuItems[2].Enabled = false;
+                    }
+                }
+            };
+            calendar.ContextMenu = ctxMenus;
+            if (Options.Rules.ContainsKey("min"))
+            {
+                calendar.MinDate = DateTime.Parse(Options.Rules["min"].ToString());
+            }
+            if (Options.Rules.ContainsKey("max"))
+            {
+                calendar.MaxDate = DateTime.Parse(Options.Rules["max"].ToString());
+            }
+            calendar.DateChanged += (o, ev) =>
+            {
+                if (ev.Start.ToShortDateString() == ev.End.ToShortDateString())
+                {
+
+                    this.Value = ev.Start.ToString();
+                }
+                else
+                {
+                    this.Value = ev.Start.ToString() + "=>" + ev.End.ToString();
+                }
+                OnValueChanged(this, ev);
+            };
+            return calendar;
         }
 
         private NumericUpDown GetNumber()

@@ -14,14 +14,43 @@
     "Caption": "测试表单",
     "Dock": 5,
     "Width": 1,
-    "Children": []
+    "Children": [
+      {
+        "GroupType": 1,
+        "Name": "demo1",
+        "Padding": {
+          "Top": 10,
+          "Bottom": 10,
+          "Left": 20,
+          "Right": 20
+        },
+        "Caption": "测试表单",
+        "Dock": 3,
+        "Width": 0.5,
+        "Children": []
+      },
+      {
+        "GroupType": 1,
+        "Name": "demo2",
+        "Padding": {
+          "Top": 10,
+          "Bottom": 10,
+          "Left": 20,
+          "Right": 20
+        },
+        "Caption": "测试表单",
+        "Dock": 5,
+        "Width": 1,
+        "Children": []
+      }
+    ]
   },
   "Items": [
     {
       "InputType": 0,
       "Name": "UserName",
       "Caption": "用户名:",
-      "GroupName": "demo",
+      "GroupName": "demo1",
       "Options": {},
       "Rules": {
         "maxlength": 10,
@@ -32,7 +61,7 @@
       "InputType": 0,
       "Name": "Password",
       "Caption": "密码:",
-      "GroupName": "demo",
+      "GroupName": "demo1",
       "Options": {
         "password": "*"
       },
@@ -46,7 +75,7 @@
       "Name": "Text",
       "Caption": "说明:",
       "Height": 50,
-      "GroupName": "demo",
+      "GroupName": "demo1",
       "Options": {},
       "Rules": {
         "maxlength": 10,
@@ -57,17 +86,25 @@
       "InputType": "DateTimePicker",
       "Name": "DateTimePicker",
       "Caption": "日期:",
-      "GroupName": "demo",
+      "GroupName": "demo1",
       "Options": {
         "format": "yyyy-MM-dd HH:mm"
       },
       "Rules": {}
     },
     {
+      "InputType": "Calendar",
+      "Name": "Calendar",
+      "Height": 190,
+      "Caption": "月历:",
+      "GroupName": "demo1",
+      "Rules": {}
+    },
+    {
       "InputType": "Number",
       "Name": "Number",
       "Caption": "数字:",
-      "GroupName": "demo",
+      "GroupName": "demo1",
       "Options": {
         "thousands": true
       },
@@ -80,7 +117,7 @@
       "InputType": "CheckBoxList",
       "Name": "Cbxlist1",
       "Caption": "多选(object):",
-      "GroupName": "demo",
+      "GroupName": "demo1",
       "Height": 50,
       "Options": {
         "options": [
@@ -108,7 +145,7 @@
       "InputType": "CheckBoxList",
       "Name": "Cbxlist2",
       "Caption": "多选(string):",
-      "GroupName": "demo",
+      "GroupName": "demo1",
       "Height": 50,
       "Options": {
         "options": "一,二,三,四"
@@ -119,7 +156,7 @@
       "InputType": "CheckBoxs",
       "Name": "Cbxlist3",
       "Caption": "多选:",
-      "GroupName": "demo",
+      "GroupName": "demo2",
       "Options": {
         "columns": 3,
         "options": [
@@ -147,7 +184,7 @@
       "InputType": "CheckBoxs",
       "Name": "Cbxlist4",
       "Caption": "多选(string):",
-      "GroupName": "demo",
+      "GroupName": "demo1",
       "Options": {
         "options": "一,二,三,四"
       },
@@ -157,7 +194,7 @@
       "InputType": "RadioButtons",
       "Name": "RadioBtns1",
       "Caption": "单选:",
-      "GroupName": "demo",
+      "GroupName": "demo2",
       "Options": {
         "columns": 3,
         "options": [
@@ -185,7 +222,7 @@
       "InputType": "RadioButtons",
       "Name": "RadioBtns2",
       "Caption": "单选(string):",
-      "GroupName": "demo",
+      "GroupName": "demo2",
       "Options": {
         "options": "一,二,三,四"
       },
@@ -195,7 +232,7 @@
       "InputType": "ComboBox",
       "Name": "ComboBox1",
       "Caption": "单选:",
-      "GroupName": "demo",
+      "GroupName": "demo2",
       "Options": {
         "columns": 3,
         "options": [
@@ -223,7 +260,7 @@
       "InputType": "ComboBox",
       "Name": "ComboBox2",
       "Caption": "单选(string):",
-      "GroupName": "demo",
+      "GroupName": "demo2",
       "Options": {
         "options": "一,二,三,四"
       },
@@ -233,7 +270,7 @@
       "InputType": "Switch",
       "Name": "Switch1",
       "Caption": "开关:",
-      "GroupName": "demo",
+      "GroupName": "demo2",
       "Options": {},
       "Rules": {}
     }

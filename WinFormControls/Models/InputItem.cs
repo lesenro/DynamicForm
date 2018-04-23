@@ -7,7 +7,7 @@ namespace WinFormControls.Models
 {
     public enum InputType
     {
-        TextBox,TextArea, DateTimePicker,DateTime, Number,CheckBoxList, CheckBoxs,RichText, RadioButtons,ComboBox,Switch
+        TextBox,TextArea, DateTimePicker, Calendar, Number,CheckBoxList, CheckBoxs,RichText, RadioButtons,ComboBox,Switch
     }
     public class InputItem
     {

@@ -57,6 +57,7 @@ namespace Demos
                 ComboBox1 = "k2",
                 ComboBox2 = "四",
                 Switch1 = true,
+                Calendar= "2016-02-12=>2016-02-22"
             };
             gform.FillData(lg);
         }
